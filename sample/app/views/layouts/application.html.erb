@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html>
+<head>
+  <head>
+        <meta charset="utf-8">
+  <title>Sample</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  
+  <%= csrf_meta_tags %>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="/assets/flexslider.min.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="/assets/line-icons.min.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="/assets/elegant-icons.min.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="/assets/lightbox.min.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="/assets/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="/assets/theme.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="/assets/custom.css" rel="stylesheet" type="text/css" media="all"/>
+        <!--[if gte IE 9]>
+          <link rel="stylesheet" type="text/css" href="css/ie9.css" />
+    <![endif]-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700%7CRaleway:700' rel='stylesheet' type='text/css'>
+        <script src="/assets/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+</head>
+<body>
+
+<%= yield %>
+
+<p class="navbar-text pull-right">
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% end %>
+        
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>    
+</body>
+</html>
